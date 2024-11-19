@@ -9,9 +9,24 @@ public class Game {
     }
     // Can add a player to the game
     public void add(Player player){
+        players.add(player);
+    }
+
+    public void playGame(){
+        Deck deck = new Deck();
 
     }
     public static void main(String[] args) {
+        Game main = new Game();
+        Player p1 = new Player("Alex");
+        Player computer = new Player("Computer");
+        // Add both of the players to the game
+        main.add(p1);
+        main.add(computer);
+
+        // Play Game
+        main.playGame();
+
 
     }
 }
