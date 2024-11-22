@@ -43,8 +43,21 @@ public class Player {
         hand.add(card);
     }
 
+    // update score
+    public void updateScore(){
+        points = 0;
+        for(Card card: this.hand){
+            points += card.getValue();
+        }
+    }
+
     // to String
     public String toString(){
-        return name + " has " + points + " points\n" + name + "'s cards: " + hand;
+        // if computer, only reveal one of the cards. If player, reveal whole hand
+        if (name.equals("computer")){
+            return "computer is showing " + hand.get(1).getValue() + " points\n" + name + "is showing a " + hand.get(1);
+        }else {
+            return name + " has " + points + " points\n" + name + "'s cards: " + hand;
+        }
     }
 }
