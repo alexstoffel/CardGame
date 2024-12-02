@@ -49,9 +49,21 @@ public class Player {
     // update score
     public void updateScore(){
         points = 0;
+
+        // go through each card
         for(Card card: this.hand){
             points += card.getValue();
         }
+
+        // if there is an ace, can change its value to 1
+        for (int i = 0; i < this.hand.size(); i++){
+            if (this.hand.get(i).getRank().equals("Ace") && points > 21){
+                // change ace value to 1
+                points -= 10;
+                break;
+            }
+        }
+
     }
 
     // update money

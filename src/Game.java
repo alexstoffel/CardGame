@@ -7,7 +7,7 @@ public class Game {
     private Player computer;
     private String[] cards = {"Ace","2","3","4","5","6","7","8","9","10", "jack","queen","king"};
     private String[] suits = {"Hearts","Spades","Diamonds","Clubs"};
-    private int[] values = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,};
+    private int[] values = {11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,};
     private int pot;
 
     // Constructor for game
