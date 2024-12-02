@@ -4,18 +4,21 @@ public class Player {
     private int points;
     private String name;
     private ArrayList<Card> hand;
+    private int money;
 
     // Constructors
     public Player(String name){
         this.name = name;
         this.points = 0;
         this.hand = new ArrayList<Card>();
+        this.money = 500;
     }
 
     public Player(String name, ArrayList<Card> hand){
         this.name = name;
         this.points = 0;
         this.hand = hand;
+        this.money = 500;
     }
 
     // Get points
@@ -51,13 +54,23 @@ public class Player {
         }
     }
 
+    // update money
+    public void updateMoney(int num){
+        money += num;
+    }
+
+    // get the money of the player
+    public int getMoney(){
+        return this.money;
+    }
+
     // to String
     public String toString(){
         // if computer, only reveal one of the cards. If player, reveal whole hand
         if (name.equals("computer")){
-            return "computer is showing " + hand.get(1).getValue() + " points\n" + name + "is showing a " + hand.get(1);
+            return "computer is showing " + hand.get(1);
         }else {
-            return name + " has " + points + " points\n" + name + "'s cards: " + hand;
+            return name + "'s cards: " + hand;
         }
     }
 }
