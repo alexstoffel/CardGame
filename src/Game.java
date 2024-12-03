@@ -34,7 +34,7 @@ public class Game {
 
     // print instructions method
     public static void printInstructions(){
-        System.out.println("This is BlackJack! YBlackjack is a card game where players aim to get a hand that is closer" +
+        System.out.println("This is BlackJack! Blackjack is a card game where players aim to get a hand that is closer" +
                 " to 21 than the computer’s hand, without going over 21. Each card is worth its face value, with face" +
                 "cards (Jack, Queen, King) worth 10 and Aces worth either 1 or 11. ");
     }
