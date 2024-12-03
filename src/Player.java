@@ -2,8 +2,8 @@ import java.util.ArrayList;
 
 public class Player {
     private int points;
-    private String name;
-    private ArrayList<Card> hand;
+    private final String name;
+    private final ArrayList<Card> hand;
     private int money;
 
     // Constructors

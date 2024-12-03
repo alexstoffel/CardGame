@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 public class Game {
-    private Deck deck;
-    private ArrayList<Player> players;
-    private Player player;
-    private Player computer;
-    private String[] cards = {"Ace","2","3","4","5","6","7","8","9","10", "jack","queen","king"};
-    private String[] suits = {"Hearts","Spades","Diamonds","Clubs"};
-    private int[] values = {11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,};
+    private final Deck deck;
+    private final ArrayList<Player> players;
+    private final Player player;
+    private final Player computer;
+    private final String[] cards = {"Ace","2","3","4","5","6","7","8","9","10", "jack","queen","king"};
+    private final String[] suits = {"Hearts","Spades","Diamonds","Clubs"};
+    private final int[] values = {11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10,};
     private int pot;
 
     // Constructor for game
@@ -34,7 +34,7 @@ public class Game {
 
     // print instructions method
     public static void printInstructions(){
-        System.out.println("");
+        System.out.println();
     }
 
     // this method control all the bets
@@ -47,11 +47,11 @@ public class Game {
         System.out.println("how much would you like to bet? (Current Total: " + player.getMoney() + ")");
 
         // get a valid bet
-        while (bet > player.getMoney()){
+        while (bet > player.getMoney() || bet < 0){
             bet = input.nextInt();
             input.nextLine();
 
-            if (bet > player.getMoney()){
+            if (bet > player.getMoney() || bet < 0){
                 System.out.println("Enter a valid bet");
             }
         }
@@ -59,7 +59,6 @@ public class Game {
         // change the pot and everything
         this.pot += bet * 2;
         player.updateMoney(bet * (-1));
-
     }
 
     // Can add a player to the game
@@ -129,24 +128,17 @@ public class Game {
             player.updateMoney(pot);
             System.out.println("Computer busted! You win! Final money: " + player.getMoney());
             pot = 0;
-            return;
         }else if(computer.getPoints() < player.getPoints()){
             player.updateMoney(pot);
             System.out.println("You win! Final money: " + player.getMoney());
             pot = 0;
-            return;
         }else if(computer.getPoints() > player.getPoints()){
             pot = 0;
             System.out.println("computer wins! Final money: " + player.getMoney());
-            return;
         }else{
             player.updateMoney(pot / 2);
             System.out.println("Tie! Final money: " + player.getMoney());
-            return;
         }
-
-
-
     }
     public static void main(String[] args) {
         Game main = new Game();
@@ -154,7 +146,5 @@ public class Game {
 
         // Play Game
         main.playGame();
-
-
     }
 }
